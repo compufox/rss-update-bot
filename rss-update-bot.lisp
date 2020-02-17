@@ -29,7 +29,14 @@
     (format t "ERROR: no url specified~%")
     (uiop:quit 1))
 
-  (run-bot ((make-instance 'mastodon-bot :config-file *config-file*)
-	    :with-websocket nil)
-    (after-every (3 :hours :run-immediately t)
-      (check-feed))))
+  (handler-case
+      (with-user-abort
+          (run-bot ((make-instance 'mastodon-bot :config-file *config-file*)
+		    :with-websocket nil)
+	    (after-every (3 :hours :run-immediately t)
+	      (check-feed))))
+    (user-abort ()
+      (uiop:quit 0))
+    (error (e)
+      (format t "error: ~a~%" e)
+      (uiop:quit 1))))
