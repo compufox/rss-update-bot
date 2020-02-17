@@ -1,7 +1,7 @@
-# qlupdate-bot
+# rss-update-bot
 ### _ava fox_
 
-a mastodon bot that posts when the quicklisp blog updates
+a mastodon bot that posts when an rss feed updates
 
 ## License
 
