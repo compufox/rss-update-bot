@@ -12,7 +12,8 @@
   :components ((:file "package")
                (:file "rss-update-bot"))
   :build-operation "program-op"
-  :build-pathname "bin/rss-bot"
+  :build-pathname #-Win32 "bin/rss-bot"
+                  #+Win32 "bin/rss-bot.exe"
   :entry-point "rss-update-bot::main")
 
 #+sb-core-compression
