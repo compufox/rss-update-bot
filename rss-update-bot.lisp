@@ -18,6 +18,12 @@
 
 (defun main ()
   (multiple-value-bind (opts args) (get-opts)
+    (when (or (getf opts :help)
+	      (null opts))
+      (unix-opts:describe
+       :usage-of "rss-bot")
+      (uiop:quit))
+    
     (setf *config-file* (getf opts :config)
 	  *url* (getf opts :url)))
 

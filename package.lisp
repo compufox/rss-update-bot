@@ -22,6 +22,9 @@
   "rss url")
 
 (define-opts
+  (:name :help
+   :short #\h
+   :long "help")
   (:name :config
    :short #\c
    :long "config"
