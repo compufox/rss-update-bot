@@ -16,10 +16,11 @@
 ;; i would like to save this to the config, but that
 ;;  would require the newest version of SIMPLE-CONFIG which isnt
 ;;  in quicklisp yet
-(defvar *newest-post* nil
+;; update: it IS in quicklisp
+(defvar *newest-post* (make-hash-table :size 4 :test 'equal)
   "timestamp for the most recent published rss entry")
-(defvar *url* nil
-  "rss url")
+(defvar *urls* nil
+  "rss urls")
 
 (define-opts
   (:name :help
@@ -34,10 +35,4 @@
    :short #\c
    :long "config"
    :arg-parser #'identity
-   :meta-var "FILE")
-  (:name :url
-   :description "specify an rss feed url to poll for updates"
-   :short #\u
-   :long "url"
-   :arg-parser #'identity
-   :meta-var "URL"))
+   :meta-var "FILE"))

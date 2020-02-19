@@ -3,14 +3,25 @@
 
 a mastodon bot that posts when an rss feed updates
 
+## Installation
+
+download binary from [releases](https://github.com/compufox/rss-update-bot/releases)
+
+copy provided example config and populate it with valid tokens
+
+if `poll-interval` is not provided, 3 hours is used
+
 ## Usage
 
 specify a config file to use: `./rss-bot -c CONFIG`
 
-pass in an RSS feed url: `./rss-bot -u URL`
+pass in an RSS feed url: `./rss-bot URL+`
 
 full usage example: 
-`./rss-bot -c your.config -u https://my.cool.blog/rss/feed.xml`
+`./rss-bot -c your.config https://my.cool.blog/rss/feed.xml`
+
+multiple feeds:
+`./rss-bot -c your.config https://my.cool.blog/rss/feed.xml https://my.second.blog/rss/feed.xml`
 
 ## Building
 
