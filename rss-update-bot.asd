@@ -4,7 +4,7 @@
   :description "mastodon bot that posts when an rss feed updates"
   :author "ava fox"
   :license  "NPLv1+"
-  :version "0.0.1"
+  :version "0.2"
   :serial t
   :depends-on (#:glacier #:cl-feedparser
 	       #:with-user-abort #:dexador
@@ -15,7 +15,7 @@
   :build-pathname "bin/rss-bot"
   :entry-point "rss-update-bot::main")
 
-#+sb-core-compression
+#+(and sb-core-compression (not Win32))
 (defmethod asdf:perform ((o asdf:image-op) (c asdf:system))
   (uiop:dump-image (asdf:output-file o c) :executable t :compression t))
 
