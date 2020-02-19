@@ -22,6 +22,10 @@
 	      (null opts))
       (unix-opts:describe
        :usage-of "rss-bot")
+
+    (when (getf opts :version)
+      (format t "rss-bot v~a"
+	      (asdf:component-version (asdf:find-system :rss-update-bot)))
       (uiop:quit))
     
     (setf *config-file* (getf opts :config)

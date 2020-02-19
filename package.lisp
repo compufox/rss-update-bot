@@ -26,6 +26,9 @@
    :description "prints this help"
    :short #\h
    :long "help")
+  (:name :version
+   :description "print version info"
+   :long "version")
   (:name :config
    :description "specify a config file to load"
    :short #\c
